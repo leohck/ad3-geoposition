@@ -1,11 +1,12 @@
 import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import {useState, useCallback} from "react";
+import {useState, useCallback, useEffect} from "react";
 import {Input} from "../../components/Input";
 import {Locations} from "../../components/Locations";
-import {loadLocations} from "../../utils/load-locations";
+import {loadLocations} from "../../services/load-locations";
 import {Button} from "../../components/Button";
+
 
 export const Home = () => {
     const [locations, setLocations] = useState([]);

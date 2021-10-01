@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import '../../img/logo-ad3.png'
 
 export const Header = () => (
     <nav className="navbar navbar-light bg-light">

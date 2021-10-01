@@ -8,7 +8,8 @@ export const Locations = ({locations}) => {
                 <LocationCard
                     key={location.id}
                     address={location.address}
-                    geo={location.geo}
+                    lat={location.lat}
+                    lng={location.lng}
                 />
             ))}
         </div>
