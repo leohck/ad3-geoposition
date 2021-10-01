@@ -1,7 +1,7 @@
 import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import {useState, useCallback, useEffect} from "react";
+import {useState, useCallback} from "react";
 import {Input} from "../../components/Input";
 import {Locations} from "../../components/Locations";
 import {loadLocations} from "../../services/load-locations";
