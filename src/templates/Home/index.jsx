@@ -14,7 +14,7 @@ export const Home = () => {
     const handleLoadLocations = useCallback(async () => {
         searchValue.replace(" ", "+");
         const locations = await loadLocations(searchValue);
-        console.log(locations);
+        console.log("response: \n" + locations);
         setLocations(locations);
     }, [searchValue]);
 
