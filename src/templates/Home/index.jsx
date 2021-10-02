@@ -1,13 +1,13 @@
 import './styles.css'
 
-import {useState, useCallback} from "react";
+import {useState} from "react";
 import {CSVLink} from "react-csv";
 import {Input} from "../../components/Input";
 import {Locations} from "../../components/Locations";
-import {loadLocations} from "../../services/load-locations";
+// import {loadLocations} from "../../services/load-locations";
 import {Button} from "../../components/Button";
 import {Header} from "../../components/Header";
-import {searchLocations} from "../../services/api";
+
 
 
 export const Home = () => {
@@ -15,10 +15,8 @@ export const Home = () => {
     const [locationSearchValue, setLocationSearchValue] = useState('');
     const [radiusSearchValue, setRadiusSearchValue] = useState('');
 
-    searchLocations('mc donalds em sao paulo');
-
     const csvHeaders = [
-        {label: "Latitude", key: "lat"},
+        {label: "Latitude", key: "lat", type: "float"},
         {label: "Longitude", key: "lng"},
         {label: "Raio", key: "radius"},
     ];
@@ -29,15 +27,30 @@ export const Home = () => {
         filename: 'GeopositionReport.csv'
     }
 
-    const handleLoadLocations = useCallback(async () => {
-        const locations = await loadLocations(locationSearchValue);
+    const handleLoadLocations = () => {
+        let request = {
+            query: locationSearchValue
+        };
+        window.service.textSearch(request, handleLoadLocationsCallback);
+    }
+
+    const handleLoadLocationsCallback = (results, status) => {
+        let locations = []
+        results.forEach((location, i) => {
+            locations.push({
+                id: i,
+                address: location.formatted_address,
+                lat: parseFloat(location.geometry.location.lat()),
+                lng: parseFloat(location.geometry.location.lng()),
+            })
+        });
         setLocations(locations);
-    }, [locationSearchValue]);
+    }
 
     const handleSetLocationsRadius = () => {
         setLocations(
             locations.map((location) => {
-                return {...location, radius: radiusSearchValue}
+                return {...location, radius: parseInt(radiusSearchValue)}
             })
         )
     }
