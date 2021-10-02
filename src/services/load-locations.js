@@ -8,7 +8,9 @@ export const loadLocations = async (query) => {
         method: 'GET',
         headers: myHeaders,
         mode: 'cors',
-        cache: 'default'
+        cache: 'default',
+        "access-control-allow-origin" : "*",
+        "Content-type": "application/json; charset=UTF-8"
     };
     let data = undefined;
     await fetch(

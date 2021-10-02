@@ -7,12 +7,15 @@ import {Locations} from "../../components/Locations";
 import {loadLocations} from "../../services/load-locations";
 import {Button} from "../../components/Button";
 import {Header} from "../../components/Header";
+import {searchLocations} from "../../services/api";
 
 
 export const Home = () => {
     const [locations, setLocations] = useState([]);
     const [locationSearchValue, setLocationSearchValue] = useState('');
     const [radiusSearchValue, setRadiusSearchValue] = useState('');
+
+    searchLocations('mc donalds em sao paulo');
 
     const csvHeaders = [
         {label: "Latitude", key: "lat"},
