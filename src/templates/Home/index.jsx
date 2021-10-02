@@ -14,9 +14,9 @@ export const Home = () => {
     const [radiusSearchValue, setRadiusSearchValue] = useState(500);
 
     const csvHeaders = [
-        {label: "Latitude", key: "lat", type: "float"},
-        {label: "Longitude", key: "lng"},
-        {label: "Raio", key: "radius"},
+        {label: "lat", key: "lat"},
+        {label: "long", key: "lng"},
+        {label: "radius_meters", key: "radius"},
     ];
 
     const csvReport = {
@@ -118,7 +118,7 @@ export const Home = () => {
                         <br/>
                         <div className="row">
                             <div className="col text-left">
-                                <label htmlFor="radiusSearchValue">Informe o Raio de ação em metros</label>
+                                <label htmlFor="radiusSearchValue">Informe o Raio de ação em metros: 3m to 100000m</label>
                                 <Input
                                     id="radiusSearchValue"
                                     placeholder="Exemplo: 500"
