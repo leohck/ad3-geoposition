@@ -12,7 +12,7 @@ import {Header} from "../../components/Header";
 export const Home = () => {
     const [locations, setLocations] = useState([]);
     const [locationSearchValue, setLocationSearchValue] = useState('');
-    const [radiusSearchValue, setRadiusSearchValue] = useState('');
+    const [radiusSearchValue, setRadiusSearchValue] = useState(500);
 
     const csvHeaders = [
         {label: "Latitude", key: "lat", type: "float"},
