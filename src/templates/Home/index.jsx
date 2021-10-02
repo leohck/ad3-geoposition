@@ -8,7 +8,6 @@ import {Button} from "../../components/Button";
 import {Header} from "../../components/Header";
 
 
-
 export const Home = () => {
     const [locations, setLocations] = useState([]);
     const [locationSearchValue, setLocationSearchValue] = useState('');
