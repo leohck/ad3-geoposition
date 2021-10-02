@@ -1,7 +1,7 @@
 import './styles.css'
 
 
-export const Input = ({id, searchValue, onChange, placeholder, icon, _type}) => {
+export const Input = ({id, searchValue, onChange, onKeyUp, onSubmit, placeholder, icon, _type}) => {
     return (
         <div>
             <div className="input-group has-warning">
@@ -14,6 +14,8 @@ export const Input = ({id, searchValue, onChange, placeholder, icon, _type}) => 
                     id={id}
                     className="form-control"
                     onChange={onChange}
+                    onKeyUp={onKeyUp}
+                    onSubmit={onSubmit}
                     value={searchValue}
                     type={_type || "text"}
                     placeholder={placeholder}

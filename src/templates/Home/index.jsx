@@ -4,7 +4,6 @@ import {useState} from "react";
 import {CSVLink} from "react-csv";
 import {Input} from "../../components/Input";
 import {Locations} from "../../components/Locations";
-// import {loadLocations} from "../../services/load-locations";
 import {Button} from "../../components/Button";
 import {Header} from "../../components/Header";
 
@@ -34,7 +33,7 @@ export const Home = () => {
         window.service.textSearch(request, handleLoadLocationsCallback);
     }
 
-    const handleLoadLocationsCallback = (results, status) => {
+    const handleLoadLocationsCallback = (results) => {
         let locations = []
         results.forEach((location, i) => {
             locations.push({
@@ -54,6 +53,13 @@ export const Home = () => {
             })
         )
     }
+
+    const handleLocationSearchOnKeyUp = (event) => {
+        if (event.key === 'Enter') {
+            handleLoadLocations();
+        }
+    }
+
     const handleLocationSearchChange = (event) => {
         const {value} = event.target;
         setLocationSearchValue(value);
@@ -83,6 +89,7 @@ export const Home = () => {
                                     placeholder="Digite o Endereço, CEP, ou Estabelecimento por região"
                                     icon="location_on"
                                     onChange={handleLocationSearchChange}
+                                    onKeyUp={handleLocationSearchOnKeyUp}
                                     searchValue={locationSearchValue}
                                 />
                             </div>
