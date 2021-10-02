@@ -31,6 +31,13 @@ export const Home = () => {
         setLocations(locations);
     }, [locationSearchValue]);
 
+    const handleSetLocationsRadius = () => {
+        setLocations(
+            locations.map((location) => {
+                return {...location, radius: radiusSearchValue}
+            })
+        )
+    }
     const handleLocationSearchChange = (event) => {
         const {value} = event.target;
         setLocationSearchValue(value);
@@ -105,6 +112,7 @@ export const Home = () => {
                                         className="btn btn-info btn-round"
                                         text="Gerar CSV"
                                         icon="file_download"
+                                        onClick={handleSetLocationsRadius}
                                     >
                                     </Button>
                                 </CSVLink>
