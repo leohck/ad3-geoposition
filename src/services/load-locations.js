@@ -18,7 +18,7 @@ export const loadLocations = async (query) => {
             data = response.json();
         })
         .catch((error) => {
-            console.log("error");
+            console.log(error);
         });
 
     data = await data;

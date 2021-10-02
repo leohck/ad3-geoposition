@@ -1,10 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../../img/logo-ad3.png'
+import logo from '../../img/AD3PlusPPB.png'
+import './styles.css'
 
-export const Header = () => (
-    <nav className="navbar navbar-light bg-light">
-        <div className="container-fluid">
-            <h2>Ad3Plus</h2>
+export const Header = () => {
+    return (
+        <div>
+            <div className="nav justify-content-center">
+                <img className="nav-item" src={logo} alt="AD3Plus Logo"/>
+            </div>
+            {/*<div className="nav justify-content-center sub-header">*/}
+            {/*    <p className="nav-item">*/}
+            {/*        <b>Geoposition</b>*/}
+            {/*    </p>*/}
+            {/*</div>*/}
         </div>
-    </nav>
-);
+    );
+}
