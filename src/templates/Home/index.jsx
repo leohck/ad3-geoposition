@@ -44,7 +44,8 @@ export const Home = () => {
     return (
         <div className="home">
             <Header/>
-            <div className="">
+            <div>
+                <h4 className="text-center">Geoposition</h4>
                 <div className="card">
                     <div className="card-header card-header-icon card-header-warning">
                         <div className="card-icon">
